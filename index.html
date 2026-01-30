@@ -6,23 +6,21 @@
 
 <title>Никита & Виктория</title>
 
-<!-- Elegant Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== ROOT ===== */
+/* ================= ROOT ================= */
 
 :root{
 --ivory:#fbf7f2;
 --sage:#c7d4bb;
 --olive:#6c7a5c;
 --dark:#1a1a1a;
---accent:#8b7261;
 --bg:#ece7df;
 }
 
-/* ===== RESET ===== */
+/* ================= RESET ================= */
 
 *{margin:0;padding:0;box-sizing:border-box}
 
@@ -34,22 +32,22 @@ background:var(--bg);
 color:var(--dark);
 }
 
-/* ===== LAYOUT ===== */
+/* ================= LAYOUT ================= */
 
 .page{
-max-width:1500px;
+max-width:1600px;
 margin:auto;
 background:var(--ivory);
 }
 
 section{
-padding:70px 50px;
+padding:80px 50px;
 position:relative;
 }
 
 .center{text-align:center}
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
@@ -72,8 +70,7 @@ animation:heroReveal 1.4s ease;
 .hero h1{
 font-family:'Playfair Display',serif;
 font-weight:400;
-font-size:clamp(42px,5vw,78px);
-letter-spacing:.5px;
+font-size:clamp(42px,5vw,80px);
 }
 
 .hero p{
@@ -82,11 +79,11 @@ opacity:.9;
 margin:6px 0;
 }
 
-/* Scroll Arrow */
+/* Arrow */
 
 .scroll-arrow{
 position:absolute;
-bottom:28px;
+bottom:25px;
 left:50%;
 transform:translateX(-50%);
 font-size:26px;
@@ -100,31 +97,24 @@ animation:arrow 1.6s infinite;
 100%{transform:translate(-50%,0)}
 }
 
-/* ===== COUNTDOWN ===== */
+/* ================= COUNTDOWN ================= */
 
 .countdown{
 display:flex;
 justify-content:center;
 gap:18px;
-margin-top:28px;
+margin-top:25px;
 }
 
 .time{
-backdrop-filter:blur(10px);
 background:rgba(255,255,255,.17);
 padding:15px 14px;
 border-radius:14px;
 min-width:82px;
 font-size:14px;
-font-weight:300;
-transition:.4s;
 }
 
-.time:hover{
-transform:translateY(-5px);
-}
-
-/* ===== GALLERY ===== */
+/* ================= GALLERY ================= */
 
 .gallery{
 display:grid;
@@ -145,11 +135,51 @@ transition:.6s;
 transform:scale(1.07);
 }
 
-/* ===== TIMELINE ===== */
+/* ================= CALENDAR ================= */
+
+.calendar{
+max-width:360px;
+margin:40px auto 0;
+padding:25px;
+background:white;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+opacity:0;
+transform:scale(.9);
+transition:1s;
+}
+
+.calendar.show{
+opacity:1;
+transform:scale(1);
+}
+
+.calendar h3{
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+}
+
+.calendar-grid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:6px;
+font-size:13px;
+}
+
+.day,.week{padding:6px 0}
+
+.week{font-weight:500}
+
+.active{
+border:2px solid var(--olive);
+border-radius:50%;
+}
+
+/* ================= TIMELINE ================= */
 
 .timeline{
-max-width:850px;
-margin:45px auto 0;
+max-width:900px;
+margin:50px auto 0;
 position:relative;
 }
 
@@ -161,13 +191,12 @@ top:0;
 bottom:0;
 width:1px;
 background:var(--olive);
-opacity:.6;
 }
 
 .event{
 display:flex;
 justify-content:space-between;
-margin:42px 0;
+margin:45px 0;
 position:relative;
 }
 
@@ -184,29 +213,20 @@ top:12px;
 }
 
 .event-card{
-width:43%;
-padding:18px 22px;
+width:42%;
+padding:20px;
 background:white;
 border-radius:14px;
 box-shadow:0 8px 22px rgba(0,0,0,.08);
-transition:.35s;
 font-weight:300;
 }
 
-.event-card small{
-opacity:.7;
-}
-
-.event-card:hover{
-transform:translateY(-4px);
-}
-
-/* ===== LOCATION ===== */
+/* ================= LOCATION ================= */
 
 .location-card{
-max-width:780px;
-margin:35px auto 0;
-padding:28px 30px;
+max-width:800px;
+margin:40px auto 0;
+padding:30px;
 background:white;
 border-radius:22px;
 box-shadow:0 12px 30px rgba(0,0,0,.1);
@@ -225,11 +245,6 @@ font-size:14px;
 flex:1;
 min-width:220px;
 text-align:left;
-line-height:1.6;
-}
-
-.location-row span{
-font-weight:500;
 }
 
 .map{
@@ -245,7 +260,7 @@ height:280px;
 border:0;
 }
 
-/* ===== DRESSCODE ===== */
+/* ================= DRESSCODE ================= */
 
 .dress{
 background:var(--sage);
@@ -265,27 +280,22 @@ height:48px;
 border-radius:50%;
 border:2px solid white;
 box-shadow:0 6px 15px rgba(0,0,0,.16);
-transition:.4s;
 }
 
-.color:hover{
-transform:scale(1.22);
-}
-
-/* ===== RSVP ===== */
+/* ================= RSVP ================= */
 
 form{
 max-width:420px;
-margin:35px auto 0;
+margin:40px auto 0;
 }
 
-input{
+input,select{
 width:100%;
 padding:16px;
 border-radius:12px;
 border:1px solid #ccc;
+margin-top:12px;
 font-size:15px;
-font-weight:300;
 }
 
 .buttons{
@@ -301,18 +311,10 @@ border-radius:12px;
 border:0;
 background:var(--olive);
 color:white;
-font-size:15px;
-font-weight:400;
 cursor:pointer;
-transition:.35s;
 }
 
-button:hover{
-background:#556646;
-transform:translateY(-3px);
-}
-
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 
 footer{
 padding:35px;
@@ -321,7 +323,7 @@ opacity:.6;
 font-size:13px;
 }
 
-/* ===== ANIMATION ===== */
+/* ================= ANIM ================= */
 
 .reveal{
 opacity:0;
@@ -339,15 +341,13 @@ from{opacity:0;transform:translateY(45px)}
 to{opacity:1}
 }
 
-/* ===== MOBILE ===== */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
 section{padding:60px 22px}
 
-.gallery{
-grid-template-columns:1fr 1fr;
-}
+.gallery{grid-template-columns:1fr 1fr}
 
 .timeline::before{left:18px}
 
@@ -356,16 +356,11 @@ flex-direction:column;
 padding-left:45px;
 }
 
-.event::before{
-left:18px;
-transform:none;
-}
+.event::before{left:18px}
 
 .event-card{width:100%}
 
-.location-row{
-flex-direction:column;
-}
+.location-row{flex-direction:column}
 
 }
 
@@ -387,12 +382,10 @@ flex-direction:column;
 <p>05 | 09 | 26</p>
 
 <div class="countdown">
-
 <div class="time"><span id="d"></span><br>дней</div>
 <div class="time"><span id="h"></span><br>час</div>
 <div class="time"><span id="m"></span><br>мин</div>
 <div class="time"><span id="s"></span><br>сек</div>
-
 </div>
 
 </div>
@@ -408,11 +401,36 @@ flex-direction:column;
 <h2>Мы будем счастливы видеть вас 🤍</h2>
 
 <div class="gallery">
-
 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
 <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
 <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed">
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+</div>
+
+</section>
+
+<!-- CALENDAR -->
+
+<section class="center reveal">
+
+<h2>Дата свадьбы</h2>
+
+<div class="calendar" id="calendar">
+
+<h3>Сентябрь 2026</h3>
+
+<div class="calendar-grid">
+
+<div class="week">Пн</div><div class="week">Вт</div><div class="week">Ср</div>
+<div class="week">Чт</div><div class="week">Пт</div><div class="week">Сб</div><div class="week">Вс</div>
+
+<div></div><div></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day active">5</div>
+<div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
+<div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+<div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+<div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div></div><div></div><div></div>
+
+</div>
 
 </div>
 
@@ -427,23 +445,19 @@ flex-direction:column;
 <div class="timeline">
 
 <div class="event">
-<div class="event-card">14:00 — Сбор гостей<br><small>Welcome-зона, напитки</small></div>
-<div></div>
+<div class="event-card">14:00 — Сбор гостей</div><div></div>
 </div>
 
 <div class="event">
-<div></div>
-<div class="event-card">15:00 — Церемония<br><small>Обмен клятвами</small></div>
+<div></div><div class="event-card">15:00 — Церемония</div>
 </div>
 
 <div class="event">
-<div class="event-card">17:00 — Банкет<br><small>Ужин, тосты</small></div>
-<div></div>
+<div class="event-card">17:00 — Банкет</div><div></div>
 </div>
 
 <div class="event">
-<div></div>
-<div class="event-card">22:00 — Финал<br><small>Торт, салют</small></div>
+<div></div><div class="event-card">22:00 — Финал</div>
 </div>
 
 </div>
@@ -460,25 +474,16 @@ flex-direction:column;
 
 <div class="location-row">
 
-<div>
-<span>📍 Место сбора:</span><br>
-Площадь Ленина, г. Гомель
-</div>
-
-<div>
-<span>🎉 Празднование:</span><br>
-Кафе «Надежда»
-</div>
+<div>📍 <b>Сбор:</b><br>Площадь Ленина, Гомель</div>
+<div>🎉 <b>Праздник:</b><br>Кафе «Надежда»</div>
 
 </div>
 
 <div class="map">
-
 <iframe src="https://maps.google.com/maps?q=52.424012,31.015017&z=13&output=embed"></iframe>
-
 </div>
 
-<p style="margin-top:12px;font-size:13px;opacity:.7">
+<p style="margin-top:10px;font-size:13px;opacity:.7">
 На карте отмечена точка сбора гостей
 </p>
 
@@ -492,7 +497,7 @@ flex-direction:column;
 
 <h2>Дресс-код</h2>
 
-<p>Мы будем рады, если вы поддержите цветовую палитру нашего праздника ❤️</p>
+<p>Мы будем рады, если вы поддержите цветовую палитру нашего праздника 🤍</p>
 
 <div class="colors">
 
@@ -512,16 +517,26 @@ flex-direction:column;
 
 <section class="center reveal">
 
-<h2>Вы придёте?</h2>
+<h2>Подтвердите присутствие</h2>
 
-<form>
+<form id="rsvpForm">
 
-<input type="text" placeholder="Перечислите кто будет на праздновании" required>
+<input type="text" id="name" placeholder="Ваше имя" required>
+
+<input type="number" id="guests" min="1" max="10"
+placeholder="Сколько вас будет?" required>
+
+<select id="status" required>
+<option value="">Вы придёте?</option>
+<option value="Буду">Буду ❤️</option>
+<option value="Не смогу">Не смогу 😢</option>
+</select>
 
 <div class="buttons">
-<button>Буду ❤️</button>
-<button type="button">Не смогу 😢</button>
+<button type="submit">Отправить</button>
 </div>
+
+<p id="msg" style="margin-top:10px;font-size:13px;"></p>
 
 </form>
 
@@ -535,7 +550,7 @@ flex-direction:column;
 
 <script>
 
-/* COUNTDOWN */
+/* TIMER */
 
 const date=new Date("2026-09-05T00:00:00").getTime();
 
@@ -544,10 +559,15 @@ setInterval(()=>{
 const now=new Date().getTime();
 const diff=date-now;
 
-document.getElementById("d").innerHTML=Math.floor(diff/(1000*60*60*24));
-document.getElementById("h").innerHTML=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-document.getElementById("m").innerHTML=Math.floor((diff%(1000*60*60))/(1000*60));
-document.getElementById("s").innerHTML=Math.floor((diff%(1000*60))/1000);
+d=Math.floor(diff/(1000*60*60*24));
+h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+m=Math.floor((diff%(1000*60*60))/(1000*60));
+s=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("d").innerHTML=d;
+document.getElementById("h").innerHTML=h;
+document.getElementById("m").innerHTML=m;
+document.getElementById("s").innerHTML=s;
 
 },1000);
 
@@ -566,8 +586,57 @@ el.target.classList.add('show');
 
 els.forEach(el=>obs.observe(el));
 
+
+/* CALENDAR */
+
+const cal=document.getElementById('calendar');
+
+new IntersectionObserver(e=>{
+if(e[0].isIntersecting){
+cal.classList.add('show');
+}
+}).observe(cal);
+
+
+/* TELEGRAM */
+
+const BOT_TOKEN="8513391257:AAFCgsPHjonQi3UqmUZvcZoYHTzrCJ_-CpE";
+const CHAT_ID="1180408734";
+
+document.getElementById("rsvpForm").addEventListener("submit",e=>{
+
+e.preventDefault();
+
+const name=nameInput=document.getElementById("name").value;
+const guests=document.getElementById("guests").value;
+const status=document.getElementById("status").value;
+
+const text=
+`💍 RSVP\nИмя: ${name}\nГостей: ${guests}\nСтатус: ${status}`;
+
+fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+chat_id:CHAT_ID,
+text:text
+})
+})
+.then(()=>{
+
+document.getElementById("msg").innerHTML="Спасибо! Ответ отправлен 💚";
+document.getElementById("rsvpForm").reset();
+
+})
+.catch(()=>{
+
+document.getElementById("msg").innerHTML="Ошибка отправки 😢";
+
+});
+
+});
+
 </script>
 
 </body>
 </html>
-
