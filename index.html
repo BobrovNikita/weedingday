@@ -565,19 +565,16 @@ src="https://maps.google.com/maps?q=52.52014090396793,31.015451317666958&z=15&ou
 </iframe>
 </div>
 
+<p style="margin-top:10px;font-size:13px;opacity:.7">
+Заезд в Airport Hall
+</p>
+
 <div class="map" style="margin-bottom:18px">
 <img 
 src="images/airport-hall-entry.jpg" 
 alt="Заезд в Airport Hall"
 style="width:100%; display:block;">
 </div>
-
-<div class="route-wrapper">
-<button class="route-btn" onclick="openYandexTaxi()">
-🚕 Построить маршрут
-</button>
-</div>
-
 </div>
 
 </section>
@@ -688,18 +685,6 @@ cal.classList.add('show');
 }
 }).observe(cal);
 
-function openYandexTaxi(){
-  const url =
-    "https://taxi.yandex.ru/order?end_lat=52.52014090396793&end_lng=31.015451317666958";
-  window.location.href = url;
-}
-
-function openFallback(){
-  const url = "https://taxi.yandex.ru/?rto=52.520451,31.015997";
-  window.open(url, '_blank');
-}
-
-
 /* TELEGRAM */
 
 const BOT_TOKEN="8513391257:AAFCgsPHjonQi3UqmUZvcZoYHTzrCJ_-CpE";
@@ -742,6 +727,3 @@ document.getElementById("msg").innerHTML="Ошибка отправки 😢";
 
 </body>
 </html>
-
-
-
