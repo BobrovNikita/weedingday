@@ -689,7 +689,8 @@ cal.classList.add('show');
 }).observe(cal);
 
 function openYandexTaxi(){
-  const url = "https://taxi.yandex.ru/?rto=52.52014090396793,31.015451317666958";
+  const url =
+    "https://taxi.yandex.ru/order?end_lat=52.52014090396793&end_lng=31.015451317666958";
   window.location.href = url;
 }
 
@@ -741,5 +742,6 @@ document.getElementById("msg").innerHTML="Ошибка отправки 😢";
 
 </body>
 </html>
+
 
 
