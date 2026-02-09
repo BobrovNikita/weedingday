@@ -260,6 +260,53 @@ height:280px;
 border:0;
 }
 
+.route-wrapper{
+text-align:center;
+margin-top:18px;
+}
+
+.route-btn{
+padding:14px 26px;
+border-radius:30px;
+border:0;
+background:linear-gradient(135deg,var(--sage),var(--olive));
+color:white;
+font-size:14px;
+font-weight:500;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.route-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 28px rgba(0,0,0,.2);
+}
+
+.insta-card{
+margin-top:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+font-size:14px;
+padding:10px 16px;
+border-radius:20px;
+background:#f7f7f7;
+box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+
+.insta-card a{
+text-decoration:none;
+color:var(--olive);
+font-weight:500;
+}
+
+.insta-card a:hover{
+text-decoration:underline;
+}
+
+
 /* ================= DRESSCODE ================= */
 
 .dress{
@@ -498,11 +545,13 @@ padding-left:45px;
 Банкетный зал Airport Hall
 </div>
 
-<p style="margin-top:12px;font-size:14px">
-📸 <a href="https://www.instagram.com/airport.hall/" target="_blank">
-Instagram: @airport.hall
+<div class="insta-card">
+<span class="insta-icon">📸</span>
+<a href="https://www.instagram.com/airport.hall/" target="_blank">
+@airport.hall
 </a>
-</p>
+</div>
+
 
 
 <div class="map">
@@ -520,6 +569,12 @@ src="https://maps.google.com/maps?q=52.520451,31.015997&z=15&output=embed">
 src="images/airport-hall-entry.jpg" 
 alt="Заезд в Airport Hall"
 style="width:100%; display:block;">
+</div>
+
+<div class="route-wrapper">
+<button class="route-btn" onclick="buildRoute()">
+🗺 Построить маршрут
+</button>
 </div>
 
 </div>
@@ -631,6 +686,33 @@ if(e[0].isIntersecting){
 cal.classList.add('show');
 }
 }).observe(cal);
+
+function buildRoute(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const userLat = position.coords.latitude;
+        const userLng = position.coords.longitude;
+
+        const destLat = 52.520451;
+        const destLng = 31.015997;
+
+        const url = `https://www.google.com/maps/dir/${userLat},${userLng}/${destLat},${destLng}`;
+        window.open(url, '_blank');
+      },
+      () => {
+        fallbackRoute();
+      }
+    );
+  } else {
+    fallbackRoute();
+  }
+}
+
+function fallbackRoute(){
+  const url = "https://www.google.com/maps/dir/?api=1&destination=52.520451,31.015997";
+  window.open(url, '_blank');
+}
 
 
 /* TELEGRAM */
