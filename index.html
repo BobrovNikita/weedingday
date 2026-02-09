@@ -689,24 +689,8 @@ cal.classList.add('show');
 }).observe(cal);
 
 function openYandexTaxi(){
-
-  const destLat = 52.520451;
-  const destLng = 31.015997;
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const fromLat = position.coords.latitude;
-        const fromLng = position.coords.longitude;
-
-        const url = `https://taxi.yandex.ru/?rfrom=${fromLat},${fromLng}&rto=${destLat},${destLng}`;
-        window.open(url, '_blank');
-      },
-      () => openFallback()
-    );
-  } else {
-    openFallback();
-  }
+  const url = "https://taxi.yandex.ru/?rto=52.52014090396793,31.015451317666958";
+  window.location.href = url;
 }
 
 function openFallback(){
@@ -757,4 +741,5 @@ document.getElementById("msg").innerHTML="Ошибка отправки 😢";
 
 </body>
 </html>
+
 
